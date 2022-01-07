@@ -1,6 +1,6 @@
 # Gerrit Code Review: Atelier GL
 
-## Table Of contents
+## Table of contents
 
 - Introduction
 - Test
