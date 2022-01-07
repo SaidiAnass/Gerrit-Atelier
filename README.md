@@ -1,6 +1,9 @@
 # Gerrit Code Review: Atelier GL
 
+
 ## Table of contents
 
-- Introduction
+- Installation et configuration
 - Test
+
+
