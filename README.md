@@ -2,6 +2,7 @@
 
 ## Table des matières
 
+- [Introduction](#introduction)
 - [Installation](#installation-et-configuration)
 - [Workshop](#atelier)
 
@@ -9,26 +10,31 @@
 
 Before installing gerrit make sure you have
 
-- [Git for windows](https://gitforwindows.org/) ou bien [Git for MacOs](https://git-scm.com/download/mac)
+- [Git for windows](https://gitforwindows.org/) or [Git for MacOs](https://git-scm.com/download/mac)
 - [JDK](https://www.oracle.com/java/technologies/downloads/#jdk17-windows)
 
-Intallation de Gerrit localement:
+Install Gerrit locally
 
 - [Windows](https://github.com/Sl0v3C/Install_Gerrit_4Windows_Guide)
 - [Linux](https://gerrit-documentation.storage.googleapis.com/Documentation/3.5.0.1/linux-quickstart.html)
 
-Pour notre cas on va travailler avec un outil dans le cloud:
+In our case we will use [GerritHub](http://gerrithub.io/):
 
-- [GerritHub](http://gerrithub.io/)
+**GerritHub** is a public instance of Gerrit Code Review, which provides highly customisable sofisticated security. Whilst right now all GerritHub projects have shared a common public polity for all projects, you can customise your Gerrit project security and further restrict or extends the default permissions
 
-Click Signin and follow the steps
+### Creating Gerrithub account
 
-<p>
-    <img src="./imgs/gerrit%20signup.png">
+- Visit this [link](https://review.gerrithub.io/)
+
+<p align=center>
+    <img src="./imgs/gerrit%20signup.png" width=900>
 </p>
-<p>
-    <img src="./imgs/gerrit-login.png">
-</p>
+
+- Click Signin and follow the steps
+
+<p align=center>
+      <img src="./imgs/gerrit-login.png">
+  </p>
 
 <p>
     <img src="./imgs/gerrit-github.png">
@@ -97,21 +103,70 @@ Copy the contents of the output to your clipboard.
 
 ## Workshop
 
-- Connect to gerrit
+- Test connection
 
 ```console
-$ ssh auth
+$ ssh -p 29418 <username>@review.gerrithub.io
+  ****    Welcome to Gerrit Code Review    ****
+
+  Hi Younes Lamkhanter, you have successfully connected over SSH.
+
+  Unfortunately, interactive shells are disabled.
+  To clone a hosted Git repository, use:
+
+  git clone ssh://<username>@review.gerrithub.io:29418/REPOSITORY_NAME.git
+
+Connection to review.gerrithub.io closed.
 ```
 
-- Test connection `ssh -p 29418 <username>@<gerritHostName>`
-- Visit this link
 - Clone repository on local machine
+
+```console
+$ git clone "ssh://Jonas56@review.gerrithub.io:29418/Jonas56/Blog" && scp -p -P 29418 Jonas56@review.gerrithub.io:hooks/commit-msg "Blog/.git/hooks/"
+```
+
 - Create a local branch
-- Make changes
-- Commit changes
-- Push changes HEAD:refs/for/<branch>
+
+```bash
+$ cd Blog
+$ git checkout -b feature:test
+```
+
+- Make your changes
+
+- Satge and Commit changes
+
+```console
+$ git add README.md
+$ git commit -m "Feature test"
+```
+
+- Push changes to HEAD:refs/for/feature:test
+
+```console
+$ git push origin HEAD:refs/for/feature:test
+```
+
 - Switch to Gerrit UI
-- Review change (File section)
+
+<p align=center>
+    <img src="./imgs/gerrit-ui.png">
+</p>
+
 - Add reviewers to review my code
+
+<p align=center>
+    <img src="./imgs/add-Reviewers.png">
+</p>
+
+<p align=center>
+      <img src="./imgs/submit-request.png">
+</p>
+
 - Submit code review
-- Merge to the main branch
+
+<p align=center>
+    <img src="./imgs/submit-changes.png">
+</p>
+
+- Switch to your github repository and your changes will be made
