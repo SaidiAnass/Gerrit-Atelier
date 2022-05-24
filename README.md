@@ -6,6 +6,10 @@
 - [Installation](#installation-et-configuration)
 - [Workshop](#atelier)
 
+## Introduction
+
+Gerrit is a free, web-based team code collaboration tool. Software developers in a team can review each other's modifications on their source code using a Web browser and approve or reject those changes. It integrates closely with Git, a distributed version control system
+
 ## Installation et configuration
 
 Before installing gerrit make sure you have
@@ -18,9 +22,9 @@ Install Gerrit locally
 - [Windows](https://github.com/Sl0v3C/Install_Gerrit_4Windows_Guide)
 - [Linux](https://gerrit-documentation.storage.googleapis.com/Documentation/3.5.0.1/linux-quickstart.html)
 
-In our case we will use [GerritHub](http://gerrithub.io/):
+In our case we will use [GerritHub](http://gerrithub.io/)
 
-**GerritHub** is a public instance of Gerrit Code Review, which provides highly customisable sofisticated security. Whilst right now all GerritHub projects have shared a common public polity for all projects, you can customise your Gerrit project security and further restrict or extends the default permissions
+**GerritHub** is a public instance of Gerrit Code Review, which provides highly customisable sofisticated security. Whilst right now all GerritHub projects have shared a common public polity for all projects, you can customise your Gerrit project security and further restrict or extends the default permissions.
 
 ### Creating Gerrithub account
 
@@ -65,7 +69,7 @@ SSH keys come in pairs, a public key that gets shared with services like GerritH
 - Generating an SSH key pair
 
 ```sh
-$ sshkey-gen -t rsa -C "gerrituser@example.com"
+$ ssh-keygen -t rsa -C "gerrituser@example.com"
 > Generating public/private rsa key pair.
 > Enter file in which to save the key (/Users/username/.ssh/id_rsa):
 > Enter passphrase (empty for no passphrase):
