@@ -174,3 +174,7 @@ $ git push origin HEAD:refs/for/feature:test
 </p>
 
 - Switch to your github repository and your changes will be made
+
+# Licence
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
